@@ -31,12 +31,12 @@ const object = {
 nextImg.addEventListener("click", () => {
     changeByJohn('./images/image-john.jpg')
 })
-setTimeout( () => {
-     changeByJohn('./images/image-john.jpg')
-}, 4000)
-setTimeout( () => {
-    changeByTanya('./images/image-tanya.jpg')
-}, 8000)
+    setTimeout( () => {
+        changeByJohn('./images/image-john.jpg')
+   }, 4000)
+   setTimeout( () => {
+       changeByTanya('./images/image-tanya.jpg')
+   }, 8000)
 prevImg.addEventListener('click', () => {
     changeByTanya('./images/image-tanya.jpg')
 })
