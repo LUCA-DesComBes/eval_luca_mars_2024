@@ -25,7 +25,7 @@ const testimonials = [
     {
     imgUrl: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Flat_Coated_Retriever_-_black.jpg",
     alt: "Good Dog",
-    message: "“JE suis content d'être bon chien”",
+    message: "“Je suis content d'être un bon chien”",
     author: "Luca",
     position: "Chien de chasse", 
         },
@@ -39,8 +39,8 @@ const testimonials = [
 ];
 let index = 0;
 
-function changeContent(e){
-    let action;
+function changeContent(e = null){
+    let action = "next";
 
     console.log(e);
     if((e instanceof KeyboardEvent && e.key === "ArrowLeft") 
@@ -48,8 +48,8 @@ function changeContent(e){
         action = "prev"
         console.log(action)
     }
-    if((typeof e === "KeyboardEvent" && e.key === "ArrowRight") 
-     || (typeof e === "PointerEvent" && e.target.id === ICONNEXT)){
+    if((e instanceof KeyboardEvent && e.key === "ArrowRight") 
+    || (e instanceof PointerEvent && e.target.id === ICONNEXT)){
         action = "next"
         console.log(action);
     }
@@ -79,3 +79,7 @@ function changeContent(e){
 nextImg.addEventListener("click", changeContent)  
 prevImg.addEventListener('click', changeContent)
 window.addEventListener("keydown", changeContent)
+
+const interval = setInterval(() => {
+    changeContent();
+}, 4000)
